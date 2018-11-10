@@ -1,0 +1,20 @@
+.bg {
+  /* The image used */
+  background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.9)),url("../../assets/background/background-login.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.intro {
+  position: absolute;
+  top: 25%;
+  color: white;
+}
+
+.sub-intro {
+}
