@@ -18,10 +18,11 @@ export class AppComponent implements OnInit {
     if (typeof(Storage) !== undefined) {
       console.log('Web Storage Work!');
       // cek apakah user sudah pernah login
-      if (localStorage.getItem('idUser') !== null) {
+      if (sessionStorage.getItem('idUser') !== null || localStorage.getItem('idUser') !== null) {
         this.router.navigate([localStorage.getItem('currentPath')]);
       } else {
-          this.router.navigate(['login']);
+        localStorage.clear(); // reset localStorage
+        this.router.navigate(['login']);
       }
     } else {
       console.log('Web Storage Doesn\'t Work!');

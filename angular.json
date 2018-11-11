@@ -30,7 +30,9 @@
               "node_modules/font-awesome/scss/font-awesome.scss",
               "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/loading.css",
+              "src/assets/css/loading-btn.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.js",
