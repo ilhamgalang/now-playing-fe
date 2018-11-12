@@ -33,7 +33,8 @@
                 </div>
               </div>
               <!-- Sign in button -->
-              <button mdbBtn color="info" block="true" type="submit" class="waves-light my-3" [disabled]="disableButtonSignIn" mdbWavesEffect>
+              <button mdbBtn color="info" block="true" type="submit" [ngClass]="{'running':disableAndLoadingButtonSignIn}" class="waves-light my-3 ld-over-inverse" [disabled]="disableAndLoadingButtonSignIn" mdbWavesEffect>
+                <div class="ld ld-ring ld-spin" style="font-size:2em"></div> 
                 <i class="fa fa-sign-in prefix mr-1"></i>
                 Sign in
               </button>
@@ -55,11 +56,10 @@
             <div class="sub-intro">
               <p class="h1 py-1" style="border-bottom: 3px solid white;">Now Playing</p>
               <h3 class="py-2">Listen Your Favorite Songs</h3>
-              <button mdbBtn type="button" color="success" class="waves-light" (click)="tryAsGuest()" [disabled]="disableTryIt" mdbWavesEffect>Try It !!!</button>
-              <div class="btn btn-default ld-ext-right running">
-                My Button
-                <div class="ld ld-ring ld-spin"></div>
-              </div>
+              <button mdbBtn type="button" color="success" [ngClass]="{'running':disableAndLoadingButtonTryIt}" class="waves-light ld-over-inverse" (click)="tryAsGuest()" [disabled]="disableAndLoadingButtonTryIt" mdbWavesEffect>
+                <div class="ld ld-ring ld-spin" style="font-size:2em"></div> 
+                Try It !!!
+              </button>
             </div>
           </div>
         </div>

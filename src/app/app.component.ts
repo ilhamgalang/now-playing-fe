@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
       if (sessionStorage.getItem('idUser') !== null || localStorage.getItem('idUser') !== null) {
         this.router.navigate([localStorage.getItem('currentPath')]);
       } else {
+        localStorage.clear(); // reset localStorage
         this.router.navigate(['login']);
       }
     } else {

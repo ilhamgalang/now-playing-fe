@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   // Form
   loginForm: FormGroup;
 
-  // status disable button
-  disableButtonSignIn = false;
-  disableTryIt = false;
+  // status disable dan loading button
+  disableAndLoadingButtonSignIn = false;
+  disableAndLoadingButtonTryIt = false;
 
   constructor(
     private router: Router,
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   // proses login
   cekLogin() {
     // disable button sign in
-    this.disableButtonSignIn = true;
+    this.disableAndLoadingButtonSignIn = true;
     // validasi login
     if (this.loginForm.value.username !== '' &&
       this.loginForm.value.username !== null &&
@@ -74,19 +74,19 @@ export class LoginComponent implements OnInit {
             this.notif.error(response.message);
             this.loginForm.reset();
             // enable button sign in
-            this.disableButtonSignIn = false;
+            this.disableAndLoadingButtonSignIn = false;
           }
           // jika error
         }, error => {
           console.log(error);
           this.notif.error(error.message);
           // enable button sign in
-          this.disableButtonSignIn = false;
+          this.disableAndLoadingButtonSignIn = false;
         });
     } else {
       this.notif.error('Username atau Password Kosong');
       // enable button sign in
-      this.disableButtonSignIn = false;
+      this.disableAndLoadingButtonSignIn = false;
     }
     console.log(this.loginForm.value.remember);
   }
@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
   // login sebagai guest
   tryAsGuest() {
     // disable button try it
-    this.disableTryIt = true;
+    this.disableAndLoadingButtonTryIt = true;
     const api = 'user/authenticate';
     const dataLogin = {
       username: 'guest',
@@ -107,10 +107,14 @@ export class LoginComponent implements OnInit {
           // jika ya, gunakan localStorage
           sessionStorage.clear();
           localStorage.setItem('idUser', response.data._id);
+          localStorage.setItem('nameUser', response.data.name);
+          localStorage.setItem('token', response.token);
         } else {
           // jika tidak, gunakan sessionStorage
           localStorage.clear();
           sessionStorage.setItem('idUser', response.data._id);
+          localStorage.setItem('nameUser', response.data.name);
+          localStorage.setItem('token', response.token);
         }
         this.notif.success(response.message);
         this.router.navigate(['home']);
@@ -118,13 +122,13 @@ export class LoginComponent implements OnInit {
         this.notif.error(response.message);
         this.loginForm.reset();
         // enable button try it
-        this.disableTryIt = false;
+        this.disableAndLoadingButtonTryIt = false;
       }
     }, error => {
       console.log(error);
       this.notif.error(error.message);
       // enable button try it
-      this.disableTryIt = false;
+      this.disableAndLoadingButtonTryIt = false;
     });
   }
 
