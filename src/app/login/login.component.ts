@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from '../service/notification.service';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  // Form
   loginForm: FormGroup;
+
+  // status disable button
+  disableButtonSignIn = false;
+  disableTryIt = false;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
+    private notif: NotificationService,
+    private apiServer: ApiService
   ) { }
 
   ngOnInit() {
@@ -23,20 +32,100 @@ export class LoginComponent implements OnInit {
     // login form
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      remember: [false]
     });
 
   }
 
+  // proses login
   cekLogin() {
+    // disable button sign in
+    this.disableButtonSignIn = true;
+    // validasi login
     if (this.loginForm.value.username !== '' &&
       this.loginForm.value.username !== null &&
       this.loginForm.value.password !== '' &&
       this.loginForm.value.password !== null) {
-      console.log(this.loginForm.value.username);
-      console.log(this.loginForm.value.password);
+        // api
+        const api = 'user/authenticate';
+        // body
+        const body = {
+          username: this.loginForm.value.username,
+          password: this.loginForm.value.password
+        };
+        // get api
+        this.apiServer.post(body, api).subscribe(response => {
+          // jika berhasil login
+          if (response.status === 'success') {
+            // apakah opsi remember me di ceklis
+            if (this.loginForm.value.remember == true) {
+              // jika ya, gunakan localStorage
+              sessionStorage.clear();
+              localStorage.setItem('idUser', response.data._id);
+            } else {
+              // jika tidak, gunakan sessionStorage
+              localStorage.clear();
+              sessionStorage.setItem('idUser', response.data._id);
+            }
+            this.notif.success(response.message);
+            this.router.navigate(['home']);
+          } else { // jika gagal login
+            this.notif.error(response.message);
+            this.loginForm.reset();
+            // enable button sign in
+            this.disableButtonSignIn = false;
+          }
+          // jika error
+        }, error => {
+          console.log(error);
+          this.notif.error(error.message);
+          // enable button sign in
+          this.disableButtonSignIn = false;
+        });
     } else {
-      console.log('Username atau Password Kosong');
+      this.notif.error('Username atau Password Kosong');
+      // enable button sign in
+      this.disableButtonSignIn = false;
     }
+    console.log(this.loginForm.value.remember);
   }
+
+  // login sebagai guest
+  tryAsGuest() {
+    // disable button try it
+    this.disableTryIt = true;
+    const api = 'user/authenticate';
+    const dataLogin = {
+      username: 'guest',
+      password: ''
+    };
+    this.apiServer.post(dataLogin, api).subscribe(response => {
+      if (response.status === 'success') {
+        // apakah opsi remember me di ceklis
+        if (this.loginForm.value.remember == true) {
+          // jika ya, gunakan localStorage
+          sessionStorage.clear();
+          localStorage.setItem('idUser', response.data._id);
+        } else {
+          // jika tidak, gunakan sessionStorage
+          localStorage.clear();
+          sessionStorage.setItem('idUser', response.data._id);
+        }
+        this.notif.success(response.message);
+        this.router.navigate(['home']);
+      } else {
+        this.notif.error(response.message);
+        this.loginForm.reset();
+        // enable button try it
+        this.disableTryIt = false;
+      }
+    }, error => {
+      console.log(error);
+      this.notif.error(error.message);
+      // enable button try it
+      this.disableTryIt = false;
+    });
+  }
+
 }
