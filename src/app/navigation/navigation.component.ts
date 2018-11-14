@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  resource: any = 'http://localhost:8080/static/';
+
+  userInfo: Object;
+  photoUser: any;
+
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
+    this.auth.init();
+    this.userInfo = this.auth.getUserInfo();
+    this.photoUser = this.resource + this.userInfo['photo'];
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }

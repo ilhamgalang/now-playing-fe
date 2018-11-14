@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationService } from '../service/notification.service';
 import { ApiService } from '../service/api.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private notif: NotificationService,
-    private apiServer: ApiService
+    private apiServer: ApiService,
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
@@ -58,16 +60,7 @@ export class LoginComponent implements OnInit {
         this.apiServer.post(body, api).subscribe(response => {
           // jika berhasil login
           if (response.status === 'success') {
-            // apakah opsi remember me di ceklis
-            if (this.loginForm.value.remember == true) {
-              // jika ya, gunakan localStorage
-              sessionStorage.clear();
-              localStorage.setItem('idUser', response.data._id);
-            } else {
-              // jika tidak, gunakan sessionStorage
-              localStorage.clear();
-              sessionStorage.setItem('idUser', response.data._id);
-            }
+            this.auth.login(response, this.loginForm.value.remember);
             this.notif.success(response.message);
             this.router.navigate(['home']);
           } else { // jika gagal login
@@ -102,20 +95,7 @@ export class LoginComponent implements OnInit {
     };
     this.apiServer.post(dataLogin, api).subscribe(response => {
       if (response.status === 'success') {
-        // apakah opsi remember me di ceklis
-        if (this.loginForm.value.remember == true) {
-          // jika ya, gunakan localStorage
-          sessionStorage.clear();
-          localStorage.setItem('idUser', response.data._id);
-          localStorage.setItem('nameUser', response.data.name);
-          localStorage.setItem('token', response.token);
-        } else {
-          // jika tidak, gunakan sessionStorage
-          localStorage.clear();
-          sessionStorage.setItem('idUser', response.data._id);
-          localStorage.setItem('nameUser', response.data.name);
-          localStorage.setItem('token', response.token);
-        }
+        this.auth.login(response, false);
         this.notif.success(response.message);
         this.router.navigate(['home']);
       } else {

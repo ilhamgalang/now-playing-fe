@@ -16,10 +16,4 @@ export class HomeComponent implements OnInit {
     // set currentPath
     localStorage.setItem('currentPath', 'home');
   }
-
-  logout() {
-    sessionStorage .clear();
-    localStorage.clear();
-    this.router.navigate(['login']);
-  }
 }

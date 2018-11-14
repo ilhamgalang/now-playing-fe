@@ -3,6 +3,23 @@
   <div class="row">
 
     <div class="col-sm-12 col-md-6">
+       <div class="row" style="height: 100%;">
+        <div class="col-10 mx-auto d-block">
+          <div class="intro">
+            <div class="sub-intro">
+              <p class="h1 py-1" style="border-bottom: 3px solid white;">Now Playing</p>
+              <h3 class="py-2">Listen Your Favorite Songs</h3>
+              <button mdbBtn type="button" color="info" [ngClass]="{'running':disableAndLoadingButtonTryIt}" class="waves-light ld-over-inverse" (click)="tryAsGuest()" [disabled]="disableAndLoadingButtonTryIt" mdbWavesEffect>
+                <div class="ld ld-ring ld-spin" style="font-size:2em"></div>
+                Try It !!!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+
+    <div class="col-sm-12 col-md-6">
       <div class="row">
         <div class="col-12 col-sm-8 col-md-12 col-lg-10 col-xl-8 mx-auto d-block">
           <!-- Default form login -->
@@ -34,7 +51,7 @@
               </div>
               <!-- Sign in button -->
               <button mdbBtn color="info" block="true" type="submit" [ngClass]="{'running':disableAndLoadingButtonSignIn}" class="waves-light my-3 ld-over-inverse" [disabled]="disableAndLoadingButtonSignIn" mdbWavesEffect>
-                <div class="ld ld-ring ld-spin" style="font-size:2em"></div> 
+                <div class="ld ld-ring ld-spin" style="font-size:2em"></div>
                 <i class="fa fa-sign-in prefix mr-1"></i>
                 Sign in
               </button>
@@ -45,23 +62,6 @@
             </form>
           </mat-card>
           <!-- Default form login -->
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-12 col-md-6">
-      <div class="row" style="height: 100%;">
-        <div class="col-11 mx-auto d-block">
-          <div class="intro">
-            <div class="sub-intro">
-              <p class="h1 py-1" style="border-bottom: 3px solid white;">Now Playing</p>
-              <h3 class="py-2">Listen Your Favorite Songs</h3>
-              <button mdbBtn type="button" color="success" [ngClass]="{'running':disableAndLoadingButtonTryIt}" class="waves-light ld-over-inverse" (click)="tryAsGuest()" [disabled]="disableAndLoadingButtonTryIt" mdbWavesEffect>
-                <div class="ld ld-ring ld-spin" style="font-size:2em"></div> 
-                Try It !!!
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
