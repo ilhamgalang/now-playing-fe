@@ -10,8 +10,8 @@ ul {
 }
 
 .primnav li:hover, .primnav expand:hover {
-  background-color: #66a9e0;
-  background-color: rgba(0, 112, 204, 0.6);
+  background-color: #2E2E2E;
+  background-color: rgba(62, 69, 81, 0.7);
 }
 
 .primnav {
@@ -20,14 +20,13 @@ ul {
   width: 100vw;
   font-size: .8em;
   text-transform: uppercase;
-  background-color: #007ee6;
+  background-color: #212121;
   display: flex;
   flex-direction: column;
   transition: height 246ms .5s ease;
   padding-top: 58px;
   overflow-x: hidden;
   overflow-y: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.8);
   box-sizing: border-box;
   z-index: 1;
 }
@@ -44,15 +43,16 @@ ul {
   overflow-x: hidden;
 }
 .primnav li {
+  font-size: 12pt;
   font-weight: 400;
   position: relative;
 }
 .primnav li .tag {
-  background-color: #005aa3;
-  background-color: rgba(0, 112, 204, 0.8);
-  color: rgba(255, 255, 255, 0.8);
-  color: #e6e6e6;
-  color: rgba(255, 255, 255, 0.9);
+  background-color: #e3f2fd;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0,0, 0.8);
+  color: #212121;
+  color: rgba(0, 0, 0, 0.9);
   padding: 0 .5em;
   border-radius: 2em;
   margin-left: auto;
@@ -67,22 +67,16 @@ ul {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
 }
-.primnav .icon {
-  height: 20px;
-  flex-shrink: 0;
-  width: 20px;
-  padding: 19px;
-  margin-right: 5px;
-  padding-bottom: 15px;
-  color: #e6e6e6;
-  color: rgba(255, 255, 255, 0.9);
+
+.primnav i {
+  margin: 15px;
 }
 
 .secnav {
   margin-left: 63px;
   border-left: 1px solid black;
-  border-left-color: #0065b8;
-  border-left-color: rgba(0, 112, 204, 0.9);
+  border-left-color: #000000;
+  border-left-color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
 }
 .secnav li {
@@ -131,12 +125,14 @@ user img {
   -webkit-clip-path: circle(50% at 50% 50%);
           clip-path: circle(50% at 50% 50%);
   margin-left: 10px;
+  margin-top: -13px;
   min-height: 51px;
   min-width: 48px;
   align-items: flex-end;
 }
 user name {
   font-weight: 400;
+  max-width: 250px;
 }
 user actions {
   padding: .1em 0;
@@ -144,12 +140,13 @@ user actions {
   display: flex;
   justify-content: flex-end;
 }
-user actions a {
+user actions p {
   padding: 0 .5em;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  cursor: pointer;
 }
-user actions a:last-child {
+user actions p:last-child {
   padding-right: 0;
 }
 
@@ -162,7 +159,7 @@ content {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0070cc;
+  background-color: #4285F4;
   height: 60px;
   padding-top: 58px;
   box-sizing: border-box;
@@ -190,13 +187,13 @@ content {
     SCROLLBAR STYLE FOR IE
 */
 body {
-  scrollbar-base-color: #0070cc;
+  scrollbar-base-color: #4285F4;
   scrollbar-3dlight-color: #fff;
-  scrollbar-highlight-color: #0070cc;
-  scrollbar-track-color: #0070cc;
-  scrollbar-arrow-color: #0070cc;
-  scrollbar-shadow-color: #0070cc;
-  scrollbar-dark-shadow-color: #0070cc;
+  scrollbar-highlight-color: #4285F4;
+  scrollbar-track-color: #4285F4;
+  scrollbar-arrow-color: #4285F4;
+  scrollbar-shadow-color: #4285F4;
+  scrollbar-dark-shadow-color: #4285F4;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
@@ -355,7 +352,7 @@ label.hamburger {
   position: fixed;
   top: 58px;
   left: 0;
-  background-color: #007ee6;
+  background-color: #212121;
   border-bottom: 1px solid #0062b3;
   width: 100vw;
   box-sizing: border-box;
@@ -364,7 +361,7 @@ label.hamburger {
   .tabs {
     padding-left: calc(58px + .5rem);
     top: calc(58px - 3em);
-    background-color: #0070cc;
+    background-color: #4285F4;
     border: 0;
   }
 }
@@ -390,6 +387,6 @@ label.hamburger {
   text-decoration: none;
 }
 .tabs .tab:hover {
-  background-color: #0062b3;
+  background-color: #0d47a1;
   cursor: pointer;
 }

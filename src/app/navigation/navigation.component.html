@@ -1,4 +1,4 @@
-  <input id="hamburger" class="hamburger" type="checkbox" />
+<input id="hamburger" class="hamburger" type="checkbox" />
 <label for="hamburger" class="hamburger">
     <i></i>
   <text>
@@ -9,13 +9,13 @@
   <nav class="primnav">
     <ul>
       <li>
-        <a title="Dashboard" href="#dashboard">
-          <svg class="icon"><use xlink:href="#icon-th-large"></use></svg> Dashboard
+        <a title="Home" routerLink="/home">
+          <i class="fa fa-home fa-2x prefix"></i> Home
         </a>
       </li>
       <li>
-        <a title="Mail" href="#mail">
-          <svg class="icon"><use xlink:href="#icon-mail_outline"></use></svg> Mail
+        <a title="Home">
+          <i class="fa fa-lock fa-2x prefix"></i> TES
           <div class="tag">53</div>
         </a>
         <ul class="secnav">
@@ -27,37 +27,15 @@
           </li>
         </ul>
       </li>
-      <li>
-        <a title="Notifications" href="#notifications">
-          <svg class="icon"><use xlink:href="#icon-bell2"></use></svg> Notifications
-          <div class="tag">17</div>
-        </a>
-      </li>
-      <li>
-        <a title="System Administration" href="#sysadmin">
-          <svg class="icon"><use xlink:href="#icon-equalizer"></use></svg> System Administration
-        </a>
-        <ul class="secnav">
-          <li>
-            <a title="Users" href="#users">Users</a>
-          </li>
-          <li>
-            <a title="Lists" href="#lists">Lists</a>
-          </li>
-          <li>
-            <a title="Calendar" href="#calendar">Calendar</a>
-          </li>
-        </ul>
-      </li>
     </ul>
   </nav>
 
 <user id="user">
   <section>
-    <img src="https://randomuser.me/api/portraits/women/85.jpg" />
+    <img src="{{ photoUser }}" />
     <section>
-      <name>Sarah Dekhard</name>
-      <actions><a href="#settings">settings</a> | <a href="#logout">logout</a></actions>
+      <name class="text-right text-capitalize text-truncate">{{ userInfo.name }}</name>
+      <actions><p>settings</p> | <p (click)="logout()">logout</p></actions>
     </section>
   </section>
 </user>
@@ -65,8 +43,6 @@
 <content>
   <nav class="tabs">
     <ul>
-      <li><a class="tab" href="#">Tab One</a></li>
-      <li><a class="tab" href="#">Tab Two</a></li>
       <li><a class="tab" href="#">Tab Three</a></li>
       <li><a class="tab" href="#">Tab Four</a></li>
       <li><a class="tab" href="#">Tab Five</a></li>
