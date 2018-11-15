@@ -1,51 +1,51 @@
-<input id="hamburger" class="hamburger" type="checkbox" />
-<label for="hamburger" class="hamburger">
-    <i></i>
-  <text>
-      <close>close</close>
-      <open>menu</open>
-    </text>
-  </label>
-  <nav class="primnav">
-    <ul>
-      <li>
-        <a title="Home" routerLink="/home">
-          <i class="fa fa-home fa-2x prefix"></i> Home
-        </a>
-      </li>
-      <li>
-        <a title="Home">
-          <i class="fa fa-lock fa-2x prefix"></i> TES
-          <div class="tag">53</div>
-        </a>
-        <ul class="secnav">
-          <li>
-            <a title="Inbox" href="#inbox">Inbox</a>
-          </li>
-          <li>
-            <a title="Sent" href="#sent">Sent</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+<div *ngIf="isLogin">
+  <input id="hamburger" class="hamburger" type="checkbox" />
+  <label for="hamburger" class="hamburger">
+      <i></i>
+    <text>
+        <close>close</close>
+        <open>menu</open>
+      </text>
+    </label>
+    <nav class="primnav">
+      <ul>
+        <li>
+          <a title="Home" routerLink="/home">
+            <i class="fa fa-home fa-2x prefix"></i> Home
+          </a>
+        </li>
+        <li>
+          <a title="About" routerLink="/about">
+            <i class="fa fa-info-circle fa-2x prefix"></i> About
+          </a>
+        </li>
+        <li>
+          <a title="Home">
+            <i class="fa fa-lock fa-2x prefix"></i> TES
+            <div class="tag">53</div>
+          </a>
+          <ul class="secnav">
+            <li>
+              <a title="Inbox" href="#inbox">Inbox</a>
+            </li>
+            <li>
+              <a title="Sent" href="#sent">Sent</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
-<user id="user">
-  <section>
-    <img src="{{ photoUser }}" />
+  <user id="user">
     <section>
-      <name class="text-right text-capitalize text-truncate">{{ userInfo.name }}</name>
-      <actions><p>settings</p> | <p (click)="logout()">logout</p></actions>
+      <img src="{{ photoUser }}" />
+      <section>
+        <name class="text-right text-capitalize text-truncate">{{ userInfo.name }}</name>
+        <actions><p>settings</p> | <p (click)="logout()">logout</p></actions>
+      </section>
     </section>
-  </section>
-</user>
+  </user>
 
-<content>
-  <nav class="tabs">
-    <ul>
-      <li><a class="tab" href="#">Tab Three</a></li>
-      <li><a class="tab" href="#">Tab Four</a></li>
-      <li><a class="tab" href="#">Tab Five</a></li>
-    </ul>
-  </nav>
-</content>
+  <content>
+  </content>
+</div>

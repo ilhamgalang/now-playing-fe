@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   disableAndLoadingButtonSignIn = false;
   disableAndLoadingButtonTryIt = false;
 
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -62,7 +63,6 @@ export class LoginComponent implements OnInit {
           if (response.status === 'success') {
             this.auth.login(response, this.loginForm.value.remember);
             this.notif.success(response.message);
-            this.router.navigate(['home']);
           } else { // jika gagal login
             this.notif.error(response.message);
             this.loginForm.reset();
@@ -77,28 +77,31 @@ export class LoginComponent implements OnInit {
           this.disableAndLoadingButtonSignIn = false;
         });
     } else {
-      this.notif.error('Username atau Password Kosong');
+      this.notif.error('Username or Password is Empty!');
       // enable button sign in
       this.disableAndLoadingButtonSignIn = false;
     }
-    console.log(this.loginForm.value.remember);
   }
 
   // login sebagai guest
   tryAsGuest() {
     // disable button try it
     this.disableAndLoadingButtonTryIt = true;
+    // api
     const api = 'user/authenticate';
     const dataLogin = {
       username: 'guest',
       password: ''
     };
+    // get api
     this.apiServer.post(dataLogin, api).subscribe(response => {
+      // jika berhasil login
       if (response.status === 'success') {
-        this.auth.login(response, false);
+        // guanakan session untuk try it
+        const remember = false;
+        this.auth.login(response, remember);
         this.notif.success(response.message);
-        this.router.navigate(['home']);
-      } else {
+      } else { // jika gagal login
         this.notif.error(response.message);
         this.loginForm.reset();
         // enable button try it
