@@ -24,6 +24,7 @@
     "@angular/router": "~7.0.0",
     "@toverux/ngx-sweetalert2": "^4.0.0",
     "@types/chart.js": "^2.7.40",
+    "Slidebars": "^2.0.0",
     "angular-bootstrap-md": "^6.2.6",
     "angular-notifier": "^4.1.1",
     "angular5-csv": "^0.2.10",
