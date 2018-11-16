@@ -7,3 +7,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding-top: 20px;
   padding-left: 70px;
 }
+
+
+@media (max-width: 650px) {
+	.container-fluid {
+	  padding: 10px;
+	}
+}
