@@ -7,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicComponent implements OnInit {
 
+  stateMenu: any;
+
   constructor() { }
 
   ngOnInit() {
     // set currentPath
     localStorage.setItem('currentPath', 'music');
+    this.stateMenu = 'home';
+  }
+
+  setStateMenu(state: any) {
+  	this.stateMenu = state;
   }
 
 }

@@ -14,14 +14,22 @@ const httpOptions = {
 
 export class ApiService {
 
-constructor(private http: HttpClient) { }
+ constructor(private http: HttpClient) {
+  
+  }
 
   private server = 'http://localhost:96/';
 
   // get
-  get(): Observable<any> {
+  get(api: any): Observable<any> {
     let result: Observable<Object>;
-    result = this.http.get(this.server);
+    result = this.http.get(this.server + api);
+    return result;
+  }
+
+  getParams(api: any, params: Object): Observable<any> {
+    let result: Observable<Object>;
+    result = this.http.get(this.server + api);
     return result;
   }
 

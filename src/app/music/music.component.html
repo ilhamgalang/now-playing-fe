@@ -1,7 +1,17 @@
 <div class="container-fluid">
 
-  <p>
-    music works!
-  </p>
+  <div class="menu">
+	<button mdbBtn type="button" color="info" *ngIf="stateMenu !== 'home'" outline="true" (click)="setStateMenu('home')" mdbWavesEffect>Home</button>
+	<button mdbBtn type="button" color="info" *ngIf="stateMenu == 'home'" (click)="setStateMenu('home')" mdbWavesEffect>Home</button>
+	<button mdbBtn type="button" color="success" outline="true" *ngIf="stateMenu !== 'artist'" (click)="setStateMenu('artist')" mdbWavesEffect>Artists</button>
+	<button mdbBtn type="button" color="success" *ngIf="stateMenu == 'artist'" (click)="setStateMenu('artist')" mdbWavesEffect>Artists</button>
+	<button mdbBtn type="button" color="warning" outline="true" *ngIf="stateMenu !== 'genre'" (click)="setStateMenu('genre')" mdbWavesEffect>Genres</button>
+	<button mdbBtn type="button" color="warning" *ngIf="stateMenu == 'genre'" (click)="setStateMenu('genre')" mdbWavesEffect>Genres</button>
+  </div>
 
+  <div>
+  	<app-music-home *ngIf="stateMenu == 'home'"></app-music-home>
+  	<app-artist *ngIf="stateMenu == 'artist'"></app-artist>
+  	<app-genre *ngIf="stateMenu == 'genre'"></app-genre>
+  </div>
 </div>

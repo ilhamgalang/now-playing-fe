@@ -9,6 +9,8 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,9 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
 import { MusicComponent } from './music/music.component';
+import { ArtistComponent } from './artist/artist.component';
+import { GenreComponent } from './genre/genre.component';
+import { MusicHomeComponent } from './music-home/music-home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,10 @@ import { MusicComponent } from './music/music.component';
     HomeComponent,
     NavigationComponent,
     AboutComponent,
-    MusicComponent
+    MusicComponent,
+    ArtistComponent,
+    GenreComponent,
+    MusicHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,9 @@ import { MusicComponent } from './music/music.component';
         confirmButtonClass: 'btn btn-success',
         cancelButtonClass: 'btn btn-danger'
     }),
-    HttpClientModule
+    HttpClientModule, 
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

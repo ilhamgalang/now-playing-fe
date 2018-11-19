@@ -43,11 +43,12 @@
 
   <user id="user">
     <section>
-      <img src="{{ photoUser }}" />
-      <section>
-        <name class="text-right text-capitalize text-truncate">{{ userInfo.name }}</name>
-        <actions><p>settings</p> | <p (click)="logout()">logout</p></actions>
-      </section>
+      <img src="{{ photoUser }}" [matMenuTriggerFor]="menu" />
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item class="text-capitalize text-truncate">{{ userInfo.name }}</button>
+        <button mat-menu-item><i class="fa fa-gear prefix mr-1"></i> Settings</button>
+        <button mat-menu-item (click)="logout()"><i class="fa fa-sign-out prefix mr-1"></i> Logout</button>
+      </mat-menu>
     </section>
   </user>
 
