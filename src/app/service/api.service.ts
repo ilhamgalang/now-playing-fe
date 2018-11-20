@@ -27,7 +27,7 @@ export class ApiService {
     return result;
   }
 
-  getParams(api: any, params: Object): Observable<any> {
+  getParams(api: any, params: any): Observable<any> {
     let result: Observable<Object>;
     result = this.http.get(this.server + api);
     return result;

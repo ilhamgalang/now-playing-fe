@@ -17,6 +17,7 @@ export class MusicComponent implements OnInit {
     this.stateMenu = 'home';
   }
 
+  // status menu
   setStateMenu(state: any) {
   	this.stateMenu = state;
   }

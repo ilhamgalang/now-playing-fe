@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavService } from '../service/nav.service';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -11,9 +11,12 @@ export class AuthService {
   // data USer
   userInfo: Object;
 
+  // status cek login
+  private isLogin = new BehaviorSubject<Boolean>(false);
+  tempIsLogin = this.isLogin.asObservable();
+
   constructor(
-    private router: Router,
-    private nav: NavService
+    private router: Router
   ) { }
 
   // return data user
@@ -29,7 +32,7 @@ export class AuthService {
         photo: localStorage.getItem('photoUser'),
         _id: sessionStorage.getItem('idUser') !== null ? sessionStorage.getItem('idUser') : localStorage.getItem('idUser')
       };
-      this.nav.changeIsLogin(true);
+      this.changeIsLogin(true);
     } else {
       this.userInfo = {};
     }
@@ -54,7 +57,7 @@ export class AuthService {
       localStorage.setItem('token', response['token']);
     }
     this.userInfo = response['data'];
-    this.nav.changeIsLogin(true);
+    this.changeIsLogin(true);
     this.router.navigate(['home']);
   }
 
@@ -63,7 +66,12 @@ export class AuthService {
     sessionStorage .clear();
     localStorage.clear();
     this.userInfo = {};
-    this.nav.changeIsLogin(false);
+    this.changeIsLogin(false);
     this.router.navigate(['login']);
+  }
+
+  // parsing data antara login dan navigasi
+  changeIsLogin(statusLogin: Boolean) {
+  	this.isLogin.next(statusLogin);
   }
 }

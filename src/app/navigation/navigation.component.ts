@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { NavService } from '../service/nav.service';
 
 @Component({
   selector: 'app-navigation',
@@ -17,11 +16,10 @@ export class NavigationComponent implements OnInit {
   isLogin: Boolean;
 
   constructor(
-    private auth: AuthService,
-    private nav: NavService
+    private auth: AuthService
   ) {
     // parsing data dengan login
-    this.nav.tempIsLogin.subscribe((response) => {
+    this.auth.tempIsLogin.subscribe((response) => {
       this.userInfo = this.auth.getUserInfo();
       this.isLogin = response;
       if (this.userInfo !== undefined) {

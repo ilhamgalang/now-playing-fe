@@ -23,6 +23,7 @@ constructor() { }
     });
   }
 
+  // notif error
   error(message: any) {
     const toast = swal.mixin({
       toast: true,
@@ -37,6 +38,7 @@ constructor() { }
     });
   }
 
+  // notif warning
   warning(message: any) {
     const toast = swal.mixin({
       toast: true,
@@ -51,6 +53,7 @@ constructor() { }
     });
   }
 
+  // notif info
   info(message: any) {
     const toast = swal.mixin({
       toast: true,
@@ -65,6 +68,7 @@ constructor() { }
     });
   }
 
+  // notif question
   question(message: any) {
     const toast = swal.mixin({
       toast: true,

@@ -1,27 +1,28 @@
-  <mat-form-field class="order">
-    <mat-select placeholder="Sort By">
-      <mat-option [value]="1">
-        Name A-Z
-      </mat-option>
-      <mat-option [value]="2">
-        Name Z-A
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<!-- sort by -->
+<mat-form-field class="order">
+  <mat-select placeholder="Sort By" [(value)]="selectedSort" (selectionChange)="sortBy(selectedSort)">
+    <mat-option value="1">
+      Name A-Z
+    </mat-option>
+    <mat-option value="-1">
+      Name Z-A
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
+<!-- list genre -->
 <div class="container">
   <div class="responsive" *ngFor="let data of listGenre; let i = index">
   	<div class="gallery">
       <div class="img">
-		<a>
-		  <img src="{{http}}{{data.image}}" class="grayscale">
-		  <!-- <img src="https://www.w3schools.com/css/img_5terre.jpg" class="grayscale"> -->
-		  <div class="overlay">
-		  	<div class="text"><i class="fa fa-plus fa-2x"></i></div>
-		  </div>
-	    </a>
+        <a>
+          <img src="{{resource}}{{data.image}}" class="grayscale">
+          <div class="overlay">
+            <div class="text"><i class="fa fa-plus fa-2x"></i></div>
+          </div>
+        </a>
       </div>
-	<div class="desc h6 blue-text">{{ data.genre }}</div>
+      <div class="desc h6 blue-text">{{ data.genre }}</div>
     </div>
   </div>
   <div class="clearfix"></div>
