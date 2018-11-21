@@ -4,10 +4,6 @@
   margin-bottom: 20px;
 }
 
-.responsive {
-  margin-bottom: 20px;
-}
-
 .img {
   position: relative;
   border: 2px solid #00C851;
@@ -54,44 +50,4 @@ div.desc {
 
 * {
   box-sizing: border-box;
-}
-
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 16.3337%;
-}
-
-@media only screen and (max-width: 1200px) {
-  .responsive {
-    width: 19.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .responsive {
-    width: 24.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 780px) {
-  .responsive {
-    width: 32.333%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 470px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
 }
