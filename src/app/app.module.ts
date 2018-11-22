@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
@@ -53,7 +54,8 @@ import { MusicHomeComponent } from './music-home/music-home.component';
     HttpClientModule, 
     MatMenuModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],

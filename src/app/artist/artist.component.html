@@ -10,268 +10,37 @@
   </mat-select>
 </mat-form-field>
 
+<div class="container mb-3">
+  <div class="row">
+    <div class="col-10 text-center">
+      <p class="d-inline m-1" style="padding: 10px 15px; cursor: pointer;" (click)="setFilterAlphabet('all')">All</p>
+      <p class="d-inline m-1" style="padding: 10px 15px; cursor: pointer;" (click)="setFilterAlphabet('a')">A</p>
+      <p class="d-inline m-1" style="padding: 10px 15px; cursor: pointer;" (click)="setFilterAlphabet('b')">B</p>
+    </div>
+  </div>
+</div>
+
 <!-- list artis -->
 <div class="container">
   <div class="row">
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let data of listArtist | paginate: { itemsPerPage: 1, currentPage: p }; let i = index">
       <div class="gallery">
         <div class="img z-depth-1">
           <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
+            <img [src]="data.img" class="grayscale">
             <div class="overlay">
               <div class="text"></div>
             </div>
           </a>
         </div>
-        <div class="desc h6 green-text">Artist</div>
+        <div class="desc h6 green-text">{{data.artis}}</div>
       </div>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <div class="gallery">
-        <div class="img z-depth-1">
-          <a>
-            <img src="http://localhost:8080/static/img/artist/default.png" class="grayscale">
-            <div class="overlay">
-              <div class="text"></div>
-            </div>
-          </a>
-        </div>
-        <div class="desc h6 green-text">Artist</div>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mx-auto d-block">
+      <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>

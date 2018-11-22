@@ -3,6 +3,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+*,button:focus { outline: none; }
+
 .container-fluid {
   padding-top: 20px;
   padding-left: 70px;
