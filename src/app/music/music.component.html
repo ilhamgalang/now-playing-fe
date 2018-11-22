@@ -2,13 +2,13 @@
 
   <!-- menu -->
   <div class="menu">
-	<button mdbBtn type="button" color="info" *ngIf="stateMenu !== 'home'" outline="true" (click)="setStateMenu('home')" mdbWavesEffect>Home</button>
-	<button mdbBtn type="button" color="info" *ngIf="stateMenu == 'home'" (click)="setStateMenu('home')" mdbWavesEffect>Home</button>
-	<button mdbBtn type="button" color="success" outline="true" *ngIf="stateMenu !== 'artist'" (click)="setStateMenu('artist')" mdbWavesEffect>Artists</button>
-	<button mdbBtn type="button" color="success" *ngIf="stateMenu == 'artist'" (click)="setStateMenu('artist')" mdbWavesEffect>Artists</button>
-	<button mdbBtn type="button" color="warning" outline="true" *ngIf="stateMenu !== 'genre'" (click)="setStateMenu('genre')" mdbWavesEffect>Genres</button>
-	<button mdbBtn type="button" color="warning" *ngIf="stateMenu == 'genre'" (click)="setStateMenu('genre')" mdbWavesEffect>Genres</button>
+    <mat-chip-list>
+      <mat-chip class="sub-menu primary-color h6" (click)="setStateMenu('home')" selected>Home</mat-chip>
+      <mat-chip class="sub-menu success-color h6" (click)="setStateMenu('artist')" selected>Artist</mat-chip>
+      <mat-chip class="sub-menu warning-color h6" (click)="setStateMenu('genre')" selected>Genre</mat-chip>
+    </mat-chip-list>
   </div>
+
 
 	<!-- list yang akan ditampilkan -->
   <div>
