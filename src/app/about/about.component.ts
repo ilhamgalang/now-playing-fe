@@ -14,4 +14,9 @@ export class AboutComponent implements OnInit {
     localStorage.setItem('currentPath', 'about');
   }
 
+  tes() {
+  	document.body.scrollTop = 0;
+  	document.documentElement.scrollTop = 0;
+  }
+
 }

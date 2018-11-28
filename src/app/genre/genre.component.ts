@@ -16,6 +16,8 @@ export class GenreComponent implements OnInit {
   // data genre
   listGenre: Object;
 
+  loadingGetGenre: boolean = false;
+
   constructor(
     private notif: NotificationService,
     private server: ServerService,
@@ -32,22 +34,28 @@ export class GenreComponent implements OnInit {
 
   // get data genre
   getGenre() {
-  	const api = 'genre/read';
+    this.loadingGetGenre = true;
+  	const api = 'api/genre/read';
   	this.apiServer.get(api).subscribe(response => {
   	  this.listGenre = response.data;
+      this.loadingGetGenre = false;
   	}, error => {
-      this.notif.error(error);
-  	});
+      this.notif.error(error.message);
+      this.loadingGetGenre = false;
+ 	  });
   }
 
   // get data genre dengan sort
   sortBy(sort: any) {
-    const api = 'genre/read';
-    const params = '?sort=genre:' + sort;
+    this.loadingGetGenre = true;
+    const api = 'api/genre/read';
+    const params = 'sortKey=genre&sortValue=' + sort;
     this.apiServer.getParams(api, params).subscribe(response => {
       this.listGenre = response.data;
+      this.loadingGetGenre = false;
     }, error => {
-      this.notif.error(error);
+      this.notif.error(error.message);
+      this.loadingGetGenre = false;
     });
   }
 

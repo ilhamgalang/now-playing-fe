@@ -29,7 +29,7 @@ export class ApiService {
 
   getParams(api: any, params: any): Observable<any> {
     let result: Observable<Object>;
-    result = this.http.get(this.server + api);
+    result = this.http.get(this.server + api + '?' + params);
     return result;
   }
 

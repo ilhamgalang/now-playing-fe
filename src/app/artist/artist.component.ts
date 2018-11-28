@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../service/api.service';
+import { NotificationService } from '../service/notification.service';
+import { ServerService } from '../service/server.service';
 
 @Component({
   selector: 'app-artist',
@@ -7,100 +10,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistComponent implements OnInit {
   p: number = 1;
+  loadingGetArtis: boolean = false;
 
-  listArtist = [
-  	{
-  		artis: 'Paramore 1',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 2',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 3',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 4',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 5',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 6',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 7',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 8',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 9',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 10',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 11',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 12',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 13',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 14',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 15',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 16',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 17',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 18',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 19',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	},
-  	{
-  		artis: 'Paramore 20',
-  		img: 'http://localhost:8080/static/img/artist/default.png'
-  	}
-  ];
+  listArtist: Object;
 
-  filterAlphabet: any;
+  // alamat resource server
+  resource: any;
+  filterAlphabet: any = 'all';
 
-  constructor() { }
+  constructor(
+    private notif: NotificationService,
+    private server: ServerService,
+    private apiServer: ApiService
+   ) {
+    // mendapatkan alamat resource server
+    this.resource = this.server.getResource();
+  }
 
   ngOnInit() {
+    this.getArtis();
+  }
+
+  // get data artis
+  getArtis() {
+    this.loadingGetArtis = true;
+    const api = 'api/artis/read';
+    this.apiServer.get(api).subscribe(response => {
+      this.listArtist = response.data;
+      this.loadingGetArtis = false;
+    }, error => {
+      this.notif.error(error.message);
+      this.loadingGetArtis = false;
+     });
   }
 
   setFilterAlphabet(filter: any) {
   	this.filterAlphabet = filter;
-  	console.log(this.filterAlphabet);
+    this.loadingGetArtis = true;
+    const api = 'api/artis/read';
+    const params = 'filter=' + filter;
+    this.apiServer.getParams(api, params).subscribe(response => {
+      this.listArtist = response.data;
+      this.loadingGetArtis = false;
+    }, error => {
+      this.notif.error(error.message);
+      this.loadingGetArtis = false;
+     });
   }
 
 }

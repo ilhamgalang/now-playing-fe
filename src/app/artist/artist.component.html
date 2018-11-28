@@ -12,33 +12,70 @@
 
 <div class="container mb-3">
   <div class="row">
-    <div class="col-10 text-center">
-      <p class="d-inline m-1" style="padding: 10px 15px; cursor: pointer;" (click)="setFilterAlphabet('all')">All</p>
-      <p class="d-inline m-1" style="padding: 10px 15px; cursor: pointer;" (click)="setFilterAlphabet('a')">A</p>
-      <p class="d-inline m-1" style="padding: 10px 15px; cursor: pointer;" (click)="setFilterAlphabet('b')">B</p>
+    <div class="col-12 d-flex justify-content-center flex-wrap">
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'all'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('all')">All</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '0'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('0')">0</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '1'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('1')">1</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '2'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('2')">2</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '3'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('3')">3</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '4'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('4')">4</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '5'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('5')">5</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '6'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('6')">6</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '7'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('7')">7</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '8'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('8')">8</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == '9'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('9')">9</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'a'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('a')">A</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'b'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('b')">B</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'c'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('c')">C</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'd'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('d')">D</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'e'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('e')">E</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'f'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('f')">F</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'g'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('g')">G</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'h'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('h')">H</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'i'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('i')">I</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'j'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('j')">J</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'k'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('k')">K</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'l'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('l')">L</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'm'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('m')">M</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'n'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('n')">N</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'o'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('o')">O</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'p'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('p')">P</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'q'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('q')">Q</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'r'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('r')">R</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 's'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('s')">S</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 't'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('t')">T</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'u'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('u')">U</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'v'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('v')">V</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'w'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('w')">W</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'x'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('x')">X</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'y'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('y')">Y</p>
+      <p [ngClass]="{'bg-info text-white':filterAlphabet == 'z'}" style="padding: 7px 11px; cursor: pointer;" (click)="setFilterAlphabet('z')">Z</p>
     </div>
+  </div>
+  <div class="row d-flex justify-content-center flex-wrap">
+    <mat-spinner *ngIf="loadingGetArtis === true"></mat-spinner>
   </div>
 </div>
 
 <!-- list artis -->
-<div class="container">
+<div class="container" *ngIf="loadingGetArtis === false">
   <div class="row">
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let data of listArtist | paginate: { itemsPerPage: 1, currentPage: p }; let i = index">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let data of listArtist | paginate: { itemsPerPage: 20, currentPage: p }; let i = index">
       <div class="gallery">
         <div class="img z-depth-1">
           <a>
-            <img [src]="data.img" class="grayscale">
+            <img src="{{resource}}{{data.image}}" class="grayscale">
             <div class="overlay">
               <div class="text"></div>
             </div>
           </a>
         </div>
-        <div class="desc h6 green-text">{{data.artis}}</div>
+        <div class="desc h6 green-text">{{data.name}}</div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-6 mx-auto d-block">
+    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto d-block">
       <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
