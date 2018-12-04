@@ -1,3 +1,41 @@
-<p>
-  music-home works!
-</p>
+
+  <div class="row">
+  	<div class="col">
+  	  <blockquote class="blockquote bq-primary ">
+	    <p class="mb-0">
+	    	List 1. 
+	    	<button type="button" mdbBtn color="info" class="float-right" size="sm" style="margin-top: -4px;" mdbWavesEffect>More</button>
+	    </p>
+	  </blockquote>
+  	</div>
+  </div>	
+
+<!-- list genre -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="gallery">
+        <div class="img z-depth-1">
+          <img src="https://www.w3schools.com/css/img_avatar.png" class="grayscale image">
+          <div class="overlay">
+		    <div class="text"><i class="fa fa-play fa-3x"></i></div>
+		  </div>
+        </div>
+        <div class="desc h6 blue-text">
+          <i class="fa fa-ellipsis-v more" [matMenuTriggerFor]="moreChoiceSong"></i>
+          tes 1231231231231231 23123123123 123123123 123123123131231231 </div>
+		<mat-menu #moreChoiceSong="matMenu">
+		  <button mat-menu-item>Add to Favorite</button>
+		  <button mat-menu-item [matMenuTriggerFor]="moreChoiceSongSubMenu">Add to Playlist</button>
+		</mat-menu>
+
+		<mat-menu #moreChoiceSongSubMenu="matMenu">
+		  <button mat-menu-item>Playlist 1</button>
+		  <button mat-menu-item>Playlist 2</button>
+		  <button mat-menu-item>Playlist 3</button>
+		</mat-menu>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,6 +1,6 @@
 <!-- sort by -->
 <mat-form-field class="order">
-  <mat-select placeholder="Sort By" [(value)]="selectedSort">
+  <mat-select placeholder="Sort By" [(value)]="selectedSort" (selectionChange)="sortBy(selectedSort)">
     <mat-option value="1">
       Name A-Z
     </mat-option>

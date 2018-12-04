@@ -58,4 +58,19 @@ export class ArtistComponent implements OnInit {
      });
   }
 
+
+  // get data genre dengan sort
+  sortBy(sort: any) {
+    this.loadingGetArtis = true;
+    const api = 'api/artis/read';
+    const params = 'sortKey=artis&sortValue=' + sort;
+    this.apiServer.getParams(api, params).subscribe(response => {
+      this.listArtist = response.data;
+      this.loadingGetArtis = false;
+    }, error => {
+      this.notif.error(error.message);
+      this.loadingGetArtis = false;
+    });
+  }
+
 }
